@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game</title>
+    <script>
+      document.addEventListener("DOMContentLoaded", function(event) {
+          var audio = new Audio("/static/audio/arcade.mp3");
+          audio.play();
+      });
+      </script>
+</head>
+<style>
+    @font-face {
+      font-family: 'Pixel';
+      src: url('/static/Pixel.ttf');
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+      background-image: url('/static/game.png');
+      background-size: cover;
+      background-position: center;
+      font-family: 'Pixel', sans-serif;
+    }
+
+    h2.category {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+
+    }
+
+    h2.username {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+    }
+
+    h2.score {
+      position: absolute;
+      top: 10px;
+    }    
+
+    h2 {
+      font-size: 24px;
+    }
+</style>
+
+<body>
+    <h1>Question {{ counter }}:</h1>
+    <p>{{ question }}</p>
+    <h2 class="username">Username: {{ session.username }}</h2>
+    <h2 class="category">Category: {{ category }}</h2>
+    <h2 class="score">Score: {{ score }}</h2>
+    
+    <form action="/game" method="POST">
+      <input type="text" name="answers" placeholder="Your answer">
+      <input type="hidden" name="score" value="{{ score }}">
+      <input type="hidden" name="counter" value="{{ counter }}">
+      <input type="submit" value="Submit">
+    </form>
+</body>
+</html>

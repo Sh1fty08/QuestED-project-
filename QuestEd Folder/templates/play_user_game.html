@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Game</title>
+</head>
+<body>
+    <h1>Play User Game</h1>
+    <p>Question {{ counter }}:</p>
+    <p>{{ question }}</p>
+    <form method="POST" action="{{ url_for('play_user_game') }}">
+        <input type="hidden" name="counter" value="{{ counter }}">
+        <input type="hidden" name="score" value="{{ score }}">
+        <input type="text" name="answers" placeholder="Enter your answer" required>
+        <button type="submit">Next</button>
+    </form>
+</body>
+</html>

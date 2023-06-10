@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Editorial Page</title>
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            var audio = new Audio("/static/audio/arcade.mp3");
+            audio.play();
+        });
+        </script>
+</head>
+<body>
+    <h1>Editorial Page</h1>
+    <form action="/editorial" method="post">
+        <label>Select an option:</label><br>
+        <input type="radio" name="option" value="create" checked>Create your own questionnaire<br>
+        <input type="radio" name="option" value="play">Play an existing editorial questionnaire<br><br>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
