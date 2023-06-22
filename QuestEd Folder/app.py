@@ -1,4 +1,5 @@
 # needed python and mysql 
+#pip install flask flask_login mysql_connector
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_login import current_user, LoginManager
 import mysql.connector
@@ -8,7 +9,7 @@ import sys
 app = Flask(__name__)
 app.secret_key = '12345'
 
-
+#replace with own database connection to mysql
 db = mysql.connector.connect(
     host="localhost",
     user="root",
@@ -23,6 +24,8 @@ login_manager = LoginManager(app)
 
 @login_manager.user_loader
 def load_user(user_id):
+    #replace all login_database and all databases with your own table name in the database
+    #replace id_logindatabase with id of your table
     cursor.execute("SELECT * FROM login_database WHERE idlogin_database=%s", (user_id,))
     return cursor.fetchone()
 #user fetcher
