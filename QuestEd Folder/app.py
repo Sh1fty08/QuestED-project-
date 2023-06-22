@@ -1,3 +1,4 @@
+# needed python and mysql 
 from flask import Flask, render_template, request, redirect, url_for, session
 from flask_login import current_user, LoginManager
 import mysql.connector
